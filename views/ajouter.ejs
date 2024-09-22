@@ -1,0 +1,33 @@
+<!-- views/ajouter.ejs -->
+<%- include('partials/header') %>
+<div class="container">
+    <h1>Ajouter un Souvenir</h1>
+    <form action="/ajouter" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="image">Image du souvenir :</label>
+            <input type="file" id="image" name="image" accept="image/*" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="titre">Titre :</label>
+            <input type="text" id="titre" name="titre" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" required class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags :</label>
+            <input type="text" id="tags" name="tags" placeholder="#whisky, #amis" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="amis">Amis présents :</label>
+            <input type="text" id="amis" name="amis" placeholder="Nom des amis" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer le souvenir</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

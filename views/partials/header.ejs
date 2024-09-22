@@ -1,0 +1,25 @@
+<!-- views/partials/header.ejs -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>KulKan Kest</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="/">KulKan Kest</a></h1>
+            <ul>
+                <% if (user) { %>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/ajouter">Ajouter un souvenir</a></li>
+                    <li><a href="/logout">Déconnexion</a></li>
+                    <li><span>Bienvenue, <%= user.username %></span></li>
+                <% } else { %>
+                    <li><a href="/login">Connexion</a></li>
+                    <li><a href="/register">Inscription</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>

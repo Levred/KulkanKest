@@ -1,0 +1,28 @@
+<!-- views/index.ejs -->
+<%- include('partials/header') %>
+<div class="container">
+    <h1>Mes Souvenirs</h1>
+    <a href="/ajouter" class="btn btn-primary">Ajouter un souvenir</a>
+    <div class="card-container">
+        <% if (souvenirs.length > 0) { %>
+            <% souvenirs.forEach(function(souvenir) { %>
+                <div class="card">
+                    <% if (souvenir.image) { %>
+                        <img src="<%= souvenir.image %>" alt="Image du souvenir">
+                    <% } %>
+                    <div class="card-body">
+                        <h2 class="card-title"><%= souvenir.titre %></h2>
+                        <p class="card-text"><%= souvenir.description %></p>
+                        <p class="card-text">Date : <%= souvenir.date %></p>
+                        <p class="card-text">Tags : <%= souvenir.tags %></p>
+                        <p class="card-text">Amis présents : <%= souvenir.amis %></p>
+                        <a href="/souvenir/<%= souvenir.id %>/historique" class="btn btn-secondary">Voir l'historique</a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Aucun souvenir à afficher.</p>
+        <% } %>
+    </div>
+</div>
+<%- include('partials/footer') %>

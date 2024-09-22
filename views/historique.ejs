@@ -1,0 +1,18 @@
+<!-- views/historique.ejs -->
+<%- include('partials/header') %>
+<div class="container">
+    <h1>Historique du Souvenir</h1>
+    <ul class="list-group">
+        <% if (historique.length > 0) { %>
+            <% historique.forEach(function(action) { %>
+                <li class="list-group-item">
+                    Action : <%= action.action %> par <%= action.userId %> le <%= action.timestamp %>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <p>Aucune action enregistrée pour ce souvenir.</p>
+        <% } %>
+    </ul>
+    <a href="/" class="btn btn-secondary">Retour</a>
+</div>
+<%- include('partials/footer') %>
